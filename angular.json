@@ -1,0 +1,51 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "cli": {
+    "analytics": "466a87fb-d60b-4a02-8f3f-a8b14dd14819"
+  },
+  "version": 1,
+  "newProjectRoot": "projects",
+  "projects": {
+    "pdf-download": {
+      "root": "projects/pdf-download",
+      "sourceRoot": "projects/pdf-download/src",
+      "projectType": "library",
+      "prefix": "sb",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/pdf-download/tsconfig.lib.json",
+            "project": "projects/pdf-download/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/pdf-download/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/pdf-download/src/test.ts",
+            "tsConfig": "projects/pdf-download/tsconfig.spec.json",
+            "karmaConfig": "projects/pdf-download/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/pdf-download/tsconfig.lib.json",
+              "projects/pdf-download/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    }
+  },
+  "defaultProject": "pdf-download"
+}
