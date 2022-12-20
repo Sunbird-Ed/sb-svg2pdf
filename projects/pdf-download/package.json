@@ -1,0 +1,21 @@
+{
+  "name": "sb-svg2pdf",
+  "version": "0.0.10",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Sunbird-Ed/sb-svg2pdf.git"
+  },
+  "keywords": [
+    "angular",
+    "components",
+    "sunbird",
+    "pdf",
+    "svg download"
+  ],
+  "peerDependencies": {
+    "@angular/common": ">= 9.1.13",
+    "@angular/core": ">= 9.1.13",
+    "jspdf": "^1.5.3",
+    "dom-to-image": "^2.6.0"
+  }
+}
