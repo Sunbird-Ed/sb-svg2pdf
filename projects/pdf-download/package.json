@@ -1,6 +1,6 @@
 {
-  "name": "sb-svg2pdf",
-  "version": "0.0.10",
+  "name": "@project-sunbird/sb-svg2pdf",
+  "version": "5.1.0",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Sunbird-Ed/sb-svg2pdf.git"
@@ -12,6 +12,9 @@
     "pdf",
     "svg download"
   ],
+  "dependencies": {
+    "tslib": "^2.0.0"
+  },
   "peerDependencies": {
     "@angular/common": ">= 9.1.13",
     "@angular/core": ">= 9.1.13",
