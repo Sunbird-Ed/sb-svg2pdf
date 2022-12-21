@@ -1,6 +1,6 @@
 {
-  "name": "sb-svg2pdf",
-  "version": "0.0.10",
+  "name": "@project-sunbird/sb-svg2pdf",
+  "version": "5.1.0",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Sunbird-Ed/sb-svg2pdf.git"
