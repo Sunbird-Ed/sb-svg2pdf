@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build pdf-download --prod",
+    "build": "ng build pdf-download --configuration production",
     "dev-build": "ng build pdf-download --watch",
     "test": "ng test",
     "lint": "ng lint",
