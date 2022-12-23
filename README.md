@@ -32,4 +32,6 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 |-------------------|---------------------|-----------------|
 | release-5.1.1_v10 |      5.1.0          |     Ng V10      |
 | release-5.1.1_v11 |      5.1.1          |     Ng V11      |
+| release-5.1.1_v12 |      5.1.2          |     Ng V12      |
+
 
