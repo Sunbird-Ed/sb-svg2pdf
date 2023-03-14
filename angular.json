@@ -31,18 +31,6 @@
             "tsConfig": "projects/pdf-download/tsconfig.spec.json",
             "karmaConfig": "projects/pdf-download/karma.conf.js"
           }
-        },
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "projects/pdf-download/tsconfig.lib.json",
-              "projects/pdf-download/tsconfig.spec.json"
-            ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
-          }
         }
       }
     }
