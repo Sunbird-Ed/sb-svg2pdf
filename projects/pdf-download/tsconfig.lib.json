@@ -25,6 +25,7 @@
     "strictInjectionParameters": true,
     "enableResourceInlining": true,
     "disableTypeScriptVersionCheck": true,
+    "compilationMode": "partial"
   },
   "exclude": [
     "src/test.ts",
