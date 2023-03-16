@@ -1,6 +1,8 @@
 # sb-svg2pdf
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.3.12.
+It is not compatible with the Angular versions less than 13.3.12
+
 
 ## Development server
 
