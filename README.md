@@ -1,6 +1,6 @@
 # sb-svg2pdf
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.2.5.
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.3.12.
 
 ## Development server
 
@@ -33,5 +33,7 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 | release-5.1.1_v10 |      5.1.0          |     Ng V10      |
 | release-5.1.1_v11 |      5.1.1          |     Ng V11      |
 | release-5.1.1_v12 |      5.1.2          |     Ng V12      |
+| release-6.0.0_v13 |      6.0.0          |     Ng V13      |
+
 
 
