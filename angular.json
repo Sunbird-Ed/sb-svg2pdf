@@ -13,7 +13,7 @@
       "prefix": "sb",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-ng-packagr:build",
+          "builder": "@angular-devkit/build-angular:ng-packagr",
           "options": {
             "tsConfig": "projects/pdf-download/tsconfig.lib.json",
             "project": "projects/pdf-download/ng-package.json"
