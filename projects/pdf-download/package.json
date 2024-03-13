@@ -1,6 +1,6 @@
 {
   "name": "@project-sunbird/sb-svg2pdf",
-  "version": "8.0.1",
+  "version": "8.0.2",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Sunbird-Ed/sb-svg2pdf.git"
@@ -16,8 +16,8 @@
     "tslib": "^2.0.0"
   },
   "peerDependencies": {
-    "@angular/common": "13.3.12",
-    "@angular/core": "13.3.12",
+    "@angular/common": "16.2.12",
+    "@angular/core": "16.2.12",
     "jspdf": "^1.5.3",
     "dom-to-image": "^2.6.0"
   }
