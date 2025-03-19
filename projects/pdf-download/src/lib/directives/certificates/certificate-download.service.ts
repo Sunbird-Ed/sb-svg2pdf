@@ -9,8 +9,11 @@ export class CertificateDownloadService {
   }
 
   async buildBlob(certificateContainer: HTMLElement, format: 'pdf' | 'png'): Promise<Blob> {
+    console.log('certificateContainer', certificateContainer, 'format', format);
     const domtoimage = await this.domtoimageModule;
+    console.log('domtoimage', domtoimage);
     const JsPDF = await this.jsPDFModule;
+    console.log('JsPDF', JsPDF);
     const options = {
       width: 1060,
       height: 750,
