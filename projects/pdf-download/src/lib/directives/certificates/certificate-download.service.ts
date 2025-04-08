@@ -1,4 +1,6 @@
 import {Inject, Injectable} from '@angular/core';
+import * as htmlToImage from 'html-to-image';
+import { jsPDF } from "jspdf";
 
 @Injectable()
 export class CertificateDownloadService {
@@ -9,8 +11,6 @@ export class CertificateDownloadService {
   }
 
   async buildBlob(certificateContainer: HTMLElement, format: 'pdf' | 'png'): Promise<Blob> {
-    const domtoimage = await this.domtoimageModule;
-    const JsPDF = await this.jsPDFModule;
     const options = {
       width: 1060,
       height: 750,
@@ -23,12 +23,12 @@ export class CertificateDownloadService {
     };
 
     if (format === 'png') {
-      return domtoimage.toBlob(certificateContainer, options);
+      return htmlToImage.toBlob(certificateContainer, options);
     }
 
-    const pngUriString: string = await domtoimage.toPng(certificateContainer, options);
+    const pngUriString: string = await htmlToImage.toPng(certificateContainer, options);
 
-    const pdf = new JsPDF({
+    const pdf = new jsPDF({
       orientation: 'landscape',
       unit: 'mm',
       format: [
@@ -36,7 +36,10 @@ export class CertificateDownloadService {
       ]
     });
 
-    pdf.addImage(pngUriString, 'PNG', 0, 0);
+    const pdfWidth = pdf.internal.pageSize.width;
+    const pdfHeight = pdf.internal.pageSize.height;
+
+    pdf.addImage(pngUriString, 'PNG', 0, 0, pdfWidth, pdfHeight);
     return pdf.output('blob') as Blob;
   }
 }
