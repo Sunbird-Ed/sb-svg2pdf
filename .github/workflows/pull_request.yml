@@ -1,9 +1,14 @@
 name: Code Quality Checks
 
+# on:
+#   pull_request:
+#     branches:
+#       - '**'
+
 on:
-  pull_request:
-    branches:
-      - '**'
+  push:
+    tags:
+      - '*'
 
 jobs:
   code-quality:
