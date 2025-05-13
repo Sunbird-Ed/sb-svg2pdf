@@ -8,6 +8,7 @@
     "dev-build": "ng build pdf-download --watch",
     "test": "ng test",
     "lint": "ng lint",
+    "lint:fix": "ng lint --fix",
     "e2e": "ng e2e"
   },
   "private": true,
@@ -34,8 +35,10 @@
     "@types/jasmine": "2.8.8",
     "@types/jasminewd2": "2.0.3",
     "@types/node": "12.11.1",
+    "angular-eslint": "19.4.0",
     "codelyzer": "6.0.2",
     "dom-to-image": "2.6.0",
+    "eslint": "^9.26.0",
     "html-to-image": "^1.11.13",
     "jasmine-core": "3.5.0",
     "jasmine-spec-reporter": "5.0.0",
@@ -49,7 +52,8 @@
     "protractor": "7.0.0",
     "ts-node": "7.0.0",
     "tslint": "6.1.0",
-    "typescript": "4.9.5"
+    "typescript": "4.9.5",
+    "typescript-eslint": "8.32.0"
   },
   "engines": {
     "node": ">=16.13.0",
