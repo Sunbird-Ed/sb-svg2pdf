@@ -43,8 +43,9 @@ jobs:
           path: node_modules
           key: ${{ runner.os }}-node-modules-${{ hashFiles('**/package-lock.json') }}
 
+      - name: Run lint
+        run: npm run lint
+
       - name: Run test
         run: npm run test -- --no-watch --no-progress --browsers=ChromeHeadlessCI
 
-      - name: Run lint
-        run: npm run lint
