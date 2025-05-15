@@ -41,7 +41,7 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 | 8.0.0_v16         |      8.0.2          |     Ng V16      |
 
 ## Dependency
-Add package html-to-image@^1.11.13 as dependency for package version 8.0.5
+Add package html-to-image@^1.11.13 as dependency for package version 8.0.5 and onwards
 
 ## Code Quality
 
