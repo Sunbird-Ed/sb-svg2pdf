@@ -1,7 +1,10 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "cli": {
-    "analytics": "466a87fb-d60b-4a02-8f3f-a8b14dd14819"
+    "analytics": "466a87fb-d60b-4a02-8f3f-a8b14dd14819",
+    "schematicCollections": [
+      "angular-eslint"
+    ]
   },
   "version": 1,
   "newProjectRoot": "projects",
@@ -30,6 +33,16 @@
             "main": "projects/pdf-download/src/test.ts",
             "tsConfig": "projects/pdf-download/tsconfig.spec.json",
             "karmaConfig": "projects/pdf-download/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": [
+              "projects/pdf-download/**/*.ts",
+              "projects/pdf-download/**/*.html"
+            ],
+            "eslintConfig": "projects/pdf-download/eslint.config.js"
           }
         }
       }
