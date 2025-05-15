@@ -42,3 +42,39 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 ## Dependency
 Add package html-to-image@^1.11.13 as dependency for package version 8.0.5
+
+## Code Quality
+
+The project maintains code quality through automated checks that run on every pull request:
+
+1. **Linting**
+   - ESLint for code style and quality
+   - Command: `npm run lint`
+
+2. **Dependencies**
+   - Uses `npm ci` for deterministic installations
+   - GitHub Actions cache for faster builds
+
+3. **Code Formatting**
+   - Ensures consistent code formatting
+   - Can be automatically fixed using `npm run lint:fix`
+
+4. **Testing**
+   - Unit tests using Karma
+   - Command: `npm run test`
+
+These checks ensure consistent code style, secure dependency management, and reliable testing.
+
+## Package Publishing
+
+GitHub Actions automatically build and publish NPM packages whenever a new tag is pushed to the repository.
+
+### Publish Workflow
+
+The workflow is triggered on:
+- push to any tag
+
+Key features of the workflow:
+1. Automatically builds the project
+2. Creates NPM package
+3. Publishes to NPM registry using provided authentication token
