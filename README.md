@@ -67,12 +67,12 @@ These checks ensure consistent code style, secure dependency management, and rel
 
 ## Package Publishing
 
-GitHub Actions automatically build and publish NPM packages whenever a new tag is pushed to the repository.
+Workflow automatically builds and publishes NPM packages whenever a new tag is pushed to the repository.
 
 ### Publish Workflow
 
 The workflow is triggered on:
-- push to any tag
+- push of any tag
 
 Key features of the workflow:
 1. Automatically builds the project
