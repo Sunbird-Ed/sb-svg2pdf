@@ -37,7 +37,7 @@ export class CertificateDownloadAsPdfService {
           tspan.setAttribute('x', '202');
         }
       }
-      
+
     });
 
     return doc.documentElement.outerHTML;
@@ -67,7 +67,7 @@ export class CertificateDownloadAsPdfService {
           transform: 'scale(1)',
         }
       };
-     
+
       const pngUriString = await htmlToImage.toPng(canvasElement, options);
 
       const pdf = new jsPDF('landscape', 'mm', 'a4');
