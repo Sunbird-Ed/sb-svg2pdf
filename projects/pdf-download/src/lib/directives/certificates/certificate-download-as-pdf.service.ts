@@ -13,9 +13,6 @@ export class CertificateDownloadAsPdfService {
   }
 
   applyDirectionToTspans(svgElement): string {
-    console.log('Function called with svgElement:', svgElement); // Add this line
-
-    // Use the passed svgElement instead of querying document
     const parser = new DOMParser();
     const doc = parser.parseFromString(svgElement, 'text/html');
     const svg = doc.querySelector('svg');
@@ -25,43 +22,22 @@ export class CertificateDownloadAsPdfService {
       return svgElement;
     }
 
-    console.log('SVG found:', svg); // Add this line
-
     const tspans = svg.querySelectorAll('tspan');
-    console.log('Number of tspans found:', tspans.length); // Add this line
 
     tspans.forEach((tspan, index) => {
       const text = tspan.textContent?.trim() ?? '';
       const isArabic = /[\u0600-\u06FF\u0750-\u077F\u08A0-\u08FF\uFB50-\uFDFF\uFE70-\uFEFF]/.test(text);
 
-      console.log(`Tspan ${index}:`, {
-        text: text,
-        isArabic: isArabic,
-        element: tspan
-      });
-
       tspan.setAttribute('direction', isArabic ? 'rtl' : 'ltr');
       tspan.setAttribute('unicode-bidi', 'embed');
-      // tspan.setAttribute('text-anchor', isArabic ? 'end' : 'start');
       if (isArabic) {
-        switch (index) {
-          case 0:
-            break;
-          case 1:
-            break;
-          case 2:
-            tspan.setAttribute('x', '-87');
-            break;
-          case 3:
-            tspan.setAttribute('x', '202');
-            break;
-          case 4:
-            tspan.setAttribute('x', '202');
-            break;
-          default:
-            break;
+        if (index === 2) {
+          tspan.setAttribute('x', '-87');
+        } else if (index === 3 || index === 4) {
+          tspan.setAttribute('x', '202');
         }
       }
+      
     });
 
     return doc.documentElement.outerHTML;
