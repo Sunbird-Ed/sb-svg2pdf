@@ -23,6 +23,7 @@ export class CertificateDownloadAsPdfService {
     }
 
     const tspans = svg.querySelectorAll('tspan');
+    const totalTspans = tspans.length;
 
     tspans.forEach((tspan, index) => {
       const text = tspan.textContent?.trim() ?? '';
@@ -31,10 +32,14 @@ export class CertificateDownloadAsPdfService {
       tspan.setAttribute('direction', isArabic ? 'rtl' : 'ltr');
       tspan.setAttribute('unicode-bidi', 'embed');
       if (isArabic) {
-        if (index === 2) {
-          tspan.setAttribute('x', '-87');
-        } else if (index === 3 || index === 4) {
-          tspan.setAttribute('x', '202');
+        const xMap = {
+          4: { 1: '-87', 2: '200', 3: '200' },
+          5: { 2: '-87', 3: '200', 4: '200' }
+        };
+        
+        const xValue = xMap[totalTspans]?.[index];
+        if (xValue !== undefined) {
+          tspan.setAttribute('x', xValue);
         }
       }
 
@@ -43,59 +48,13 @@ export class CertificateDownloadAsPdfService {
     return doc.documentElement.outerHTML;
   }
 
-  async downloadPdf(template: string, handlePdfData?: (fileName: string, pdfData: Blob) => void, fileName?: string) {
-    try {
-      if (template.startsWith('data:image/svg+xml,')) {
-        template = decodeURIComponent(template.replace(/data:image\/svg\+xml,/, '')).replace(/\<!--\s*[a-zA-Z0-9\-]*\s*--\>/g, '');
-      }
-      template = this.applyDirectionToTspans(template);
-
-      const canvasElement = document.createElement('div');
-      canvasElement.id = 'sbCertificateDownloadAsPdfCanvas' + Date.now();
-      document.body.appendChild(canvasElement);
-
-      canvasElement.innerHTML = template;
-
-      const options = {
-        width: 842,
-        height: 596,
-        style: {
-          left: '0',
-          right: '0',
-          bottom: '0',
-          top: '0',
-          transform: 'scale(1)',
-        }
-      };
-
-      const pngUriString = await htmlToImage.toPng(canvasElement, options);
-
-      const pdf = new jsPDF('landscape', 'mm', 'a4');
-
-      const pdfWidth = pdf.internal.pageSize.getWidth();
-      const pdfHeight = pdf.internal.pageSize.getHeight();
-
-      pdf.addImage(pngUriString, 'PNG', 0, 0, pdfWidth, pdfHeight);
-
-      fileName = fileName || CertificateDirectivesUtility.extractFileName(template);
-
-      if (handlePdfData) {
-        handlePdfData(fileName + '.pdf', pdf.output('blob'));
-      } else {
-        pdf.save(fileName + '.pdf');
-      }
-
-      canvasElement.remove();
-    } catch (error) {
-      console.error('Error generating PDF:', error);
-      throw error;
-    }
-  }
-
   async download(template: string, handlePdfData?: (fileName: string, pdfData: Blob) => void, fileName?: string) {
     if (template.startsWith('data:image/svg+xml,')) {
       template = decodeURIComponent(template.replace(/data:image\/svg\+xml,/, '')).replace(/\<!--\s*[a-zA-Z0-9\-]*\s*--\>/g, '');
     }
+
+    template = this.applyDirectionToTspans(template);
+
     const canvasElement = CertificateDirectivesUtility.appendGhostDiv(
       'sbCertificateDownloadAsPdfCanvas' + Date.now(),
       {
