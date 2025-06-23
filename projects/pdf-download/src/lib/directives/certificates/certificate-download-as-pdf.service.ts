@@ -27,11 +27,11 @@ export class CertificateDownloadAsPdfService {
 
     tspans.forEach((tspan, index) => {
       const text = tspan.textContent?.trim() ?? '';
-      const isArabic = /[\u0600-\u06FF\u0750-\u077F\u08A0-\u08FF\uFB50-\uFDFF\uFE70-\uFEFF]/.test(text);
+      const isRTLLang = /[\u0600-\u06FF\u0750-\u077F\u08A0-\u08FF\uFB50-\uFDFF\uFE70-\uFEFF]/.test(text);
 
-      tspan.setAttribute('direction', isArabic ? 'rtl' : 'ltr');
+      tspan.setAttribute('direction', isRTLLang ? 'rtl' : 'ltr');
       tspan.setAttribute('unicode-bidi', 'embed');
-      if (isArabic) {
+      if (isRTLLang) {
         const xMap = {
           4: { 1: '-87', 2: '200', 3: '200' },
           5: { 2: '-87', 3: '200', 4: '200' }
